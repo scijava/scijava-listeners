@@ -1,3 +1,5 @@
+[![](https://travis-ci.com/scijava/scijava-listeners.svg?branch=master)](https://travis-ci.com/scijava/scijava-listeners)
+
 # scijava-listeners
 
 Helper class for maintaining lists of listeners.
