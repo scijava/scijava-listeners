@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.scijava</groupId>
+		<artifactId>pom-scijava</artifactId>
+		<version>24.2.0</version>
+	</parent>
+
+	<artifactId>scijava-listeners</artifactId>
+	<version>1.0.0-beta-1-SNAPSHOT</version>
+
+	<name>SciJava Listeners</name>
+	<description>Helper for maintaining lists of listeners</description>
+	<url>https://github.com/scijava/scijava-listeners</url>
+	<inceptionYear>2019</inceptionYear>
+	<organization>
+		<name>SciJava</name>
+		<url>http://www.scijava.org</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Simplified BSD License</name>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<dependencies>
+
+		<!-- Test scope dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<mailingLists>
+		<mailingList>
+			<name>ImageJ Forum</name>
+			<archive>http://forum.imagej.net/</archive>
+		</mailingList>
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/scijava/scijava-listeners</connection>
+		<developerConnection>scm:git:git@github.com:scijava/scijava-listeners</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/scijava/scijava-listeners</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/scijava/scijava-listeners/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Travis CI</system>
+		<url>https://travis-ci.org/scijava/scijava-listeners</url>
+	</ciManagement>
+
+	<properties>
+		<package-name>org.scijava.listeners</package-name>
+
+		<license.licenseName>bsd_2</license.licenseName>
+		<license.projectName>SciJava Listeners</license.projectName>
+		<license.copyrightOwners>Max Planck Institute of Molecular Cell Biology and Genetics</license.copyrightOwners>
+
+		<!-- NB: Deploy releases to the ImageJ Maven repository. -->
+		<releaseProfiles>deploy-to-imagej</releaseProfiles>
+	</properties>
+
+	<developers>
+		<developer>
+			<id>tpietzsch</id>
+			<name>Tobias Pietzsch</name>
+			<email>pietzsch@mpi-cbg.de</email>
+			<url>http://imagej.net/User:Pietzsch</url>
+			<roles>
+				<role>lead</role>
+				<role>developer</role>
+				<role>debugger</role>
+				<role>reviewer</role>
+				<role>support</role>
+				<role>maintainer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<contributors>
+		<contributor>
+			<name>n/a</name>
+		</contributor>
+	</contributors>
+
+	<repositories>
+		<repository>
+			<id>imagej.public</id>
+			<url>http://maven.imagej.net/content/groups/public</url>
+		</repository>
+	</repositories>
+</project>
+
