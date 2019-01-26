@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>scijava-listeners</artifactId>
-	<version>1.0.0-beta-1-SNAPSHOT</version>
+	<version>1.0.0-beta-1</version>
 
 	<name>SciJava Listeners</name>
 	<description>Helper for maintaining lists of listeners</description>
@@ -46,7 +46,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/scijava/scijava-listeners</connection>
 		<developerConnection>scm:git:git@github.com:scijava/scijava-listeners</developerConnection>
-		<tag>HEAD</tag>
+		<tag>scijava-listeners-1.0.0-beta-1</tag>
 		<url>https://github.com/scijava/scijava-listeners</url>
 	</scm>
 	<issueManagement>
