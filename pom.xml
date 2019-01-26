@@ -55,7 +55,7 @@
 	</issueManagement>
 	<ciManagement>
 		<system>Travis CI</system>
-		<url>https://travis-ci.org/scijava/scijava-listeners</url>
+		<url>https://travis-ci.com/scijava/scijava-listeners</url>
 	</ciManagement>
 
 	<properties>
