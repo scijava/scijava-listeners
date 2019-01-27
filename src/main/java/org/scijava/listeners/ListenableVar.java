@@ -1,6 +1,5 @@
 package org.scijava.listeners;
 
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -9,65 +8,48 @@ import java.util.function.Consumer;
  * {@link #set(Object)}. Listeners of type {@code L} are notified when the
  * variable is changed (or is set, alternatively).
  *
+ * @param <T>
+ *            value type
+ * @param <L>
+ *            listener type
+ *
  * @author Tobias Pietzsch
  */
-public class ListenableVar< T, L >
+public interface ListenableVar< T, L >
 {
-	private final AtomicReference< T > ref;
+	T get();
 
-	private final Listeners.List< L > listeners;
+	void set( T value );
 
-	private final BiConsumer< L, T > notify;
+	Listeners< L > listeners();
 
-	private final boolean notifyWhenSet;
-
-	public ListenableVar( final T value, final Consumer< L > notify )
+	public static < T > ListenableVar< T, ChangeListener > create( final T value )
 	{
-		this( value, notify, false );
+		return new DefaultListenableVar<>( value, ChangeListener::valueChanged );
 	}
 
-	public ListenableVar( final T value, final BiConsumer< L, T > notify )
+	public static < T > ListenableVar< T, ChangeListener > create( final T value, final boolean notifyWhenSet )
 	{
-		this( value, notify, false );
+		return new DefaultListenableVar<>( value, ChangeListener::valueChanged, notifyWhenSet );
 	}
 
-	public ListenableVar( final T value, final Consumer< L > notify, final boolean notifyWhenSet )
+	public static < T, L > ListenableVar< T, L > create( final T value, final Consumer< L > notify )
 	{
-		this( value, ( l, t ) -> notify.accept( l ), notifyWhenSet );
+		return new DefaultListenableVar<>( value, notify );
 	}
 
-	public ListenableVar( final T value, final BiConsumer< L, T > notify, final boolean notifyWhenSet )
+	public static < T, L > ListenableVar< T, L > create( final T value, final BiConsumer< L, T > notify )
 	{
-		this.ref = new AtomicReference<>( value );
-		this.notify = notify;
-		this.notifyWhenSet = notifyWhenSet;
-		this.listeners = new Listeners.SynchronizedList<>();
+		return new DefaultListenableVar<>( value, notify, false );
 	}
 
-	public void set( final T value )
+	public static < T, L > ListenableVar< T, L > create( final T value, final Consumer< L > notify, final boolean notifyWhenSet )
 	{
-		final T previous = this.ref.getAndSet( value );
-		if ( notifyWhenSet || !previous.equals( value ) )
-			listeners.list.forEach( l -> notify.accept( l, value ) );
+		return new DefaultListenableVar<>( value, notify, notifyWhenSet );
 	}
 
-	public T get()
+	public static < T, L > ListenableVar< T, L > create( final T value, final BiConsumer< L, T > notify, final boolean notifyWhenSet )
 	{
-		return ref.get();
-	}
-
-	public Listeners< L > listeners()
-	{
-		return listeners;
-	}
-
-	public static < T > ListenableVar< T, Runnable > simple( final T value )
-	{
-		return new ListenableVar<>( value, Runnable::run );
-	}
-
-	public static < T > ListenableVar< T, Runnable > simple( final T value, final boolean notifyWhenSet )
-	{
-		return new ListenableVar<>( value, Runnable::run, notifyWhenSet );
+		return new DefaultListenableVar<>( value, notify, notifyWhenSet );
 	}
 }
