@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>scijava-listeners</artifactId>
-	<version>1.0.0-beta-2-SNAPSHOT</version>
+	<version>1.0.0-beta-3-SNAPSHOT</version>
 
 	<name>SciJava Listeners</name>
 	<description>Helper for maintaining lists of listeners</description>
