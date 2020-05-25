@@ -2,6 +2,7 @@ package org.scijava.listeners;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.Consumer;
 
 /**
@@ -68,7 +69,7 @@ public interface Listeners< T >
 
 		public List( final Consumer< T > onAdd )
 		{
-			this.onAdd = onAdd;
+			this( onAdd, new ArrayList< T >() );
 		}
 
 		public List()
@@ -76,7 +77,13 @@ public interface Listeners< T >
 			this( o -> {} );
 		}
 
-		public final ArrayList< T > list = new ArrayList<>();
+		public final java.util.List< T > list;
+
+		protected List( final Consumer< T > onAdd, final java.util.List< T > list )
+		{
+			this.onAdd = onAdd;
+			this.list = list;
+		}
 
 		@Override
 		public boolean add( final T listener )
@@ -122,17 +129,19 @@ public interface Listeners< T >
 	/**
 	 * Extends {@link Listeners.List}, making {@code add} and {@code remove}
 	 * methods synchronized.
+	 * <p>
+	 * The list is maintained as a {@link CopyOnWriteArrayList} to allow unsynchronized traversal.
 	 */
 	class SynchronizedList< T > extends List< T >
 	{
 		public SynchronizedList( final Consumer< T > onAdd )
 		{
-			super( onAdd );
+			super( onAdd, new CopyOnWriteArrayList<>() );
 		}
 
 		public SynchronizedList()
 		{
-			super();
+			super( o -> {}, new CopyOnWriteArrayList<>() );
 		}
 
 		@Override
