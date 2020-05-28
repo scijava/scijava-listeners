@@ -39,7 +39,7 @@
 	<mailingLists>
 		<mailingList>
 			<name>ImageJ Forum</name>
-			<archive>http://forum.imagej.net/</archive>
+			<archive>https://forum.imagej.net/</archive>
 		</mailingList>
 	</mailingLists>
 
@@ -74,7 +74,7 @@
 			<id>tpietzsch</id>
 			<name>Tobias Pietzsch</name>
 			<email>pietzsch@mpi-cbg.de</email>
-			<url>http://imagej.net/User:Pietzsch</url>
+			<url>https://imagej.net/User:Pietzsch</url>
 			<roles>
 				<role>lead</role>
 				<role>developer</role>
