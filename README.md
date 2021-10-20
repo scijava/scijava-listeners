@@ -1,4 +1,4 @@
-[![](https://travis-ci.com/scijava/scijava-listeners.svg?branch=master)](https://travis-ci.com/scijava/scijava-listeners)
+[![](https://github.com/scijava/scijava-listeners/actions/workflows/build-main.yml/badge.svg)](https://github.com/scijava/scijava-listeners/actions/workflows/build-main.yml)
 
 # scijava-listeners
 
