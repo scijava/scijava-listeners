@@ -54,8 +54,8 @@
 		<url>https://github.com/scijava/scijava-listeners/issues</url>
 	</issueManagement>
 	<ciManagement>
-		<system>Travis CI</system>
-		<url>https://travis-ci.com/scijava/scijava-listeners</url>
+		<system>GitHub Actions</system>
+		<url>https://github.com/scijava/scijava-listeners/actions</url>
 	</ciManagement>
 
 	<properties>
