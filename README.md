@@ -1,4 +1,4 @@
-[![](https://github.com/scijava/scijava-listeners/actions/workflows/build-main.yml/badge.svg)](https://github.com/scijava/scijava-listeners/actions/workflows/build-main.yml)
+[![Build Status](https://github.com/scijava/scijava-listeners/actions/workflows/build.yml/badge.svg)](https://github.com/scijava/scijava-listeners/actions/workflows/build.yml)
 
 # scijava-listeners
 
